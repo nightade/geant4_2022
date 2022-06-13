@@ -1,17 +1,25 @@
 # GEANT4_2022 (고급물리실험)
 ### 🚨Tasks soon to be done
+* Ar Gas Medium Avg. Ionization E = ?
 * Avalanche를 잘 묘사하는가?
-* 마무리방향: He3
-<br><br>
+* 마무리 방향<br>
+...중성자 검출기 He3 대체물질(${}^{10}\text{B}$, ${}^6\text{Li}$, ${}^{157}\text{Gd}$) 논의? α Gain? Sufficient for GEM?<br>
+...Chamber 불순물(습기, 압력, 질소 등)에 따른 노이즈 관찰?<br>
+...전기장 vs Gain (Operation Regime) 관찰? (~Proportional Mode까진 나오지않을까?)<br>
+<br>
 
 ### 📜List of Projects
+* myGEM01 : GEM geometry 프로토타입<br>
+△ Chamber = [100μm × 100μm × 120μm] (2015, 최기진)
+<br><br>
 * **myGEM_acc** : 전자가 전기장으로 제대로 가속되는가?<br>
-△ 그렇다.
-<br><br>
-* **myGEM_ion** : (전자/γ에 의한) 이온화가 제대로 일어나는가?<br>
-△ 
-<br><br>
-* ~~myGEM01~~ (Abandoned) : prototype of GEM geometry<br>
+△ 그렇다 (제동복사로 인한 포톤 방출도 확인)<br>
+△ 그런데 왜 에너지가 보존이 잘 안되는 것 같을까? (아래 🤔질문박스 참조)<br>
+<br>
+* **myGEM_ion** : (전자/포톤에 의한) 이온화가 제대로 일어나는가?<br>
+△ 아닌 것 같다. (아래 🤔질문박스 참조)<br>
+△ 다른 것 말고 Gain 정도는 볼 수 있지 않을까?<br>
+<br>
 * ~~waterbody~~ (Abandoned) : 물으로 된 판자($\approx$성인남성)에 이것저것 쏴보자.<br>
 △ 차폐'일상생활'의 <br>
 * ~~shield~~ (Abandoned) : 알파입자를 Puck-shaped $\text{Be}$ 샘플에 쏴보자. (입자와 샘플 바꿔서도 해보자)<br>
@@ -24,6 +32,7 @@
 ...$W = KE_{SD} - KE_{0}$<br>
 ...KE_SD = PreStepPoint->GetKineticEnergy()<br>
 ...KE_0 = Gun Particle Energy<br>
+Chamber 옆으로 나가진 않았고, KE_0에 무관하게 값이 0.91인 것을 보면 코드에 문제가 있는게 아닐지
 * **[myGEM_ion]** 왜 이온화가 안될까?<br>
 * [minor issue] G4_Galactic은 진공으로 취급해도 괜찮은가?
 <br><br>
