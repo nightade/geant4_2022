@@ -1,0 +1,78 @@
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/run/initialize
+/control/execute vis.mac
+/vis/open OGL 600x600-0+0
+/vis/sceneHandler/create OGL
+/vis/viewer/create ! ! 600x600-0+0
+/vis/viewer/refresh
+/vis/viewer/set/autoRefresh false
+/vis/verbose 0
+/vis/drawVolume
+/vis/scene/create
+/vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
+/vis/sceneHandler/attach
+/vis/viewer/set/upVector 0 0 1
+/vis/viewer/set/viewpointThetaPhi 90. 0.
+/vis/viewer/zoom 1.4
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 100
+/vis/scene/add/axes 0 0 0 20 um
+/vis/scene/notifyHandlers
+/vis/scene/add/trajectories smooth
+/tracking/storeTrajectory 2
+/vis/scene/notifyHandlers
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/scene/notifyHandlers scene-0
+/vis/modeling/trajectories/drawByParticleID-0/set n pink
+/vis/scene/notifyHandlers scene-0
+/vis/scene/endOfEventAction accumulate
+/vis/scene/add/hits
+/vis/scene/notifyHandlers
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh
+/vis/verbose 0
+/control/execute run.mac
+/run/initialize
+/control/verbose 1
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/gun/particle e-
+/vis/viewer/set/viewpointThetaPhi 80 20 deg
+/vis/viewer/refresh
+/gun/energy 0.5 keV
+/run/beamOn 100
+/vis/scene/notifyHandlers scene-0
+/vis/ogl/export 05kev.png
+/vis/viewer/refresh
+/gun/energy 1 keV
+/run/beamOn 100
+/vis/ogl/export 1kev.png
+/vis/viewer/refresh
+/gun/energy 3 keV
+/run/beamOn 100
+/vis/ogl/export 3kev.png
+/vis/viewer/refresh
+/gun/energy 5 keV
+/run/beamOn 100
+/vis/ogl/export 5kev.png
+/vis/viewer/refresh
+/gun/energy 7 keV
+/run/beamOn 100
+/vis/ogl/export 7kev.png
+/vis/viewer/refresh
+/gun/energy 9 keV
+/run/beamOn 100
+/vis/ogl/export 9kev.png
+/vis/viewer/refresh
+/gun/energy 10 keV
+/run/beamOn 100
+/vis/ogl/export 12kev.png
+/vis/viewer/refresh
+/gun/energy 15 keV
+/run/beamOn 100
+/vis/ogl/export 15kev.png
+/vis/viewer/refresh

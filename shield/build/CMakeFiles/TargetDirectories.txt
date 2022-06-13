@@ -1,0 +1,8 @@
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/install/local.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/install.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/list_install_components.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/rebuild_cache.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/edit_cache.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/install/strip.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/prjShield.dir
+/home/uosp/geant4_workdir/shield/build/CMakeFiles/shield.dir

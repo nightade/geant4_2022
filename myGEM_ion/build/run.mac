@@ -1,0 +1,35 @@
+# Initialize kernel
+/run/initialize
+#
+/control/verbose 1
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+#
+/gun/particle e-
+/vis/viewer/set/viewpointThetaPhi 80 20 deg
+#
+/gun/energy 0.5 keV
+/run/beamOn 100
+/vis/ogl/export 05kev.png
+/gun/energy 1 keV
+/run/beamOn 100
+/vis/ogl/export 1kev.png
+/gun/energy 3 keV
+/run/beamOn 100
+/vis/ogl/export 3kev.png
+/gun/energy 5 keV
+/run/beamOn 100
+/vis/ogl/export 5kev.png
+/gun/energy 7 keV
+/run/beamOn 100
+/vis/ogl/export 7kev.png
+/gun/energy 9 keV
+/run/beamOn 100
+/vis/ogl/export 9kev.png
+/gun/energy 10 keV
+/run/beamOn 100
+/vis/ogl/export 12kev.png
+/gun/energy 15 keV
+/run/beamOn 100
+/vis/ogl/export 15kev.png
