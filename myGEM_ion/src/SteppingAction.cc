@@ -5,6 +5,7 @@
 #include "G4Step.hh"
 #include "G4RunManager.hh"
 #include "G4LogicalVolume.hh"
+#include "G4TrackVector.hh"
 
 SteppingAction::SteppingAction() : fNuman(NumberManager::Instance()) {}
 
@@ -23,9 +24,25 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     = step->GetPreStepPoint()->GetTouchableHandle()
       ->GetVolume()->GetLogicalVolume();
 
-  if (volume != fScoringVolume) return;
+  if (volume != fScoringVolume)
+  {
+    auto SecVec = step->GetSecondaryInCurrentStep(); 
+    G4int sizeSecVec = SecVec->size();
+    if (sizeSecVec > 0)
+    {
+      G4cout << "[!!!] Secondary Produced!" << G4endl;
+      for (auto iter = SecVec->begin(); iter != SecVec->end(); iter++)
+      {
+        G4cout << "Name: " << (*iter)->GetParticleDefinition()->GetParticleName() << G4endl;
+        G4cout << "KE: " << (*iter)->GetKineticEnergy() / CLHEP::eV << " [eV]" << G4endl;
+        if((*iter)->IsBelowThreshold())
+        { G4cout << "~~~~~~~~ This secondary is below threshold!" << G4endl; }
+      }
+    }
+    return;
+  }
 
-  // ========== THE ACTION ========= //
   G4double edep = step->GetTotalEnergyDeposit();
   fNuman->AddupEdep(edep);
+
 }

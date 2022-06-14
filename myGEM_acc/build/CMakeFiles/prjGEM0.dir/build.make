@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/uosp/geant4_workdir/myGEM_acc
+CMAKE_SOURCE_DIR = /home/uosp/geant4_workdir/geant4_2022/myGEM_acc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/uosp/geant4_workdir/myGEM_acc/build
+CMAKE_BINARY_DIR = /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build
 
 # Utility rule file for prjGEM0.
 
@@ -71,6 +71,6 @@ CMakeFiles/prjGEM0.dir/clean:
 .PHONY : CMakeFiles/prjGEM0.dir/clean
 
 CMakeFiles/prjGEM0.dir/depend:
-	cd /home/uosp/geant4_workdir/myGEM_acc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/uosp/geant4_workdir/myGEM_acc /home/uosp/geant4_workdir/myGEM_acc /home/uosp/geant4_workdir/myGEM_acc/build /home/uosp/geant4_workdir/myGEM_acc/build /home/uosp/geant4_workdir/myGEM_acc/build/CMakeFiles/prjGEM0.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/uosp/geant4_workdir/geant4_2022/myGEM_acc /home/uosp/geant4_workdir/geant4_2022/myGEM_acc /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/prjGEM0.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/prjGEM0.dir/depend
 

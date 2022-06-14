@@ -5,4 +5,11 @@ class PhysicsList: public G4VModularPhysicsList
 public:
   PhysicsList();
   virtual ~PhysicsList();
+
+//   void ConstructParticle();
+//   void ConstructProcess();
+  void SetCuts();
+
+// private:
+//   G4VPhysicsConstructor* fEmPenelope = nullptr;
 };

@@ -25,6 +25,8 @@ void RunAction::BeginOfRunAction(const G4Run*)
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   NumberManager* numan = NumberManager::Instance();
 
+  G4cout << "!======== Run Start " << numan->GetRunCount() << " ========!"<< G4endl;
+
   numan->AddupRunCount();
   // name = name.append(std::to_string(numan->GetRunCount()));
   man->OpenFile("output.root");
@@ -42,10 +44,9 @@ void RunAction::EndOfRunAction(const G4Run*)
 
   G4cout << ">> Your SD has detected " << numan->GetSDHitCount() << " Hits." << G4endl;
 
-  G4double kinMean = numan->GetKinStat(false);
-  G4double kinStdv = numan->GetKinStat(true);
-  G4cout << ">> Detected Kinetic Energy:" << "Mean. " << kinMean/eV << " eV";
-  G4cout << "... Stdv. " << kinStdv/eV << " eV" << G4endl;  
+  G4double kinMean = numan->GetKinStat();
+  G4cout << ">> Detected Kinetic Energy:" << "Mean. " << kinMean/eV << " eV" << G4endl;
+  G4cout << G4endl;
 
   numan->SetValuesZero();
 }

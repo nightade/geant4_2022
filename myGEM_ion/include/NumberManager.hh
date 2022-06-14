@@ -15,7 +15,7 @@ public:
   G4int GetRunCount();
 
   G4double GetEdep();
-  G4double GetKinStat(G4bool);
+  G4double GetKinStat();
 
   // ========== SET & ADDUP ========== //
   void SetBeamPort(G4ThreeVector);
@@ -39,5 +39,4 @@ private:
 
   G4double fEdep = 0;
   G4double fKin = 0;
-  G4double fKin2 = 0;
 };
