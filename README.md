@@ -16,7 +16,7 @@
   △ 그렇다 (제동복사로 인한 포톤 방출도 확인)<br>
 **의문🤔** 그런데 에너지 보존이.. 살짝 안되는 것 같습니다.
   가속이 정확하게 되는지 보기 위해서 (ΔKE / eEd = 1)이 되는지를 보았습니다.<br>
-  ΔKE는 "Sensitive Detector(하단 격자)이 포착한 Energy Deposition와 Gun Energy"의 차의 평균입니다.<br>
+  (ΔKE = Sensitive Detector(하단 격자)가 포착한 Energy Deposition과, Gun Energy의 차의 평균)<br>
   그런데 전기장과(eEd=100-100k eV) Gun Energy를 (200eV-1400eV) 크게 바꿔보아도 **0.91-0.92**의 값이 나옵니다.<br>
   그러니까 가속이 일정량씩 덜 된다는 말인데, Chamber 옆으로 전자가 나간 것도 아니기 때문에 원인이 무엇인지 모르겠습니다<br>
 
