@@ -157,17 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named prjGEM0
+# Target rules for targets named prjGEM
 
 # Build rule for target.
-prjGEM0: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 prjGEM0
-.PHONY : prjGEM0
+prjGEM: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 prjGEM
+.PHONY : prjGEM
 
 # fast build rule for target.
-prjGEM0/fast:
-	$(MAKE) -f CMakeFiles/prjGEM0.dir/build.make CMakeFiles/prjGEM0.dir/build
-.PHONY : prjGEM0/fast
+prjGEM/fast:
+	$(MAKE) -f CMakeFiles/prjGEM.dir/build.make CMakeFiles/prjGEM.dir/build
+.PHONY : prjGEM/fast
 
 #=============================================================================
 # Target rules for targets named myGEM
@@ -464,7 +464,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... prjGEM0"
+	@echo "... prjGEM"
 	@echo "... myGEM"
 	@echo "... sim.o"
 	@echo "... sim.i"

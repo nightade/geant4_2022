@@ -27,7 +27,7 @@ DetectorConstruction::DetectorConstruction()
   G4NistManager* nist = G4NistManager::Instance();
   
   fWorldMaterial = nist->FindOrBuildMaterial("G4_Galactic");
-  fChamberMaterial = nist->FindOrBuildMaterial("G4_G4_Galactic");
+  fChamberMaterial = nist->FindOrBuildMaterial("G4_Galactic");
   fTargetMaterial = nist->FindOrBuildMaterial("G4_Galactic");
   // fGEMMaterial = nist->FindOrBuildMaterial("G4_AIR");
 

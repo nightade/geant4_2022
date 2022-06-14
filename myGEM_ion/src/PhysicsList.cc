@@ -7,9 +7,9 @@
 
 PhysicsList::PhysicsList(): G4VModularPhysicsList()
 {
-  // defaultCutValue = 2.*um;
+  defaultCutValue = 2.*um;
   
-  // RegisterPhysics(new G4EmStandardPhysics());
+  //RegisterPhysics(new G4EmStandardPhysics());
   RegisterPhysics(new G4EmPenelopePhysics());
   RegisterPhysics(new G4DecayPhysics());
   // fEmPenelope = new G4EmPenelopePhysics;

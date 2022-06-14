@@ -40,7 +40,7 @@ F02ElectricFieldSetup::F02ElectricFieldSetup()
    fStepperType(4)    // ClassicalRK4 -- the default stepper
 {
   fEMfield = new G4UniformElectricField(
-                   G4ThreeVector(0., 0., -8333*volt/cm)); // (100V)/(120um)
+                   G4ThreeVector(0., 0., 8333333*volt/cm)); // (100V)/(120um)
   fEquation = new G4EqMagElectricField(fEMfield);
 
   fFieldManager = GetGlobalFieldManager();

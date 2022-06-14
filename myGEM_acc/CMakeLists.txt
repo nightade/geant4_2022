@@ -58,7 +58,7 @@ endforeach()
 # For internal Geant4 use - but has no effect if you build this
 # example standalone
 #
-add_custom_target(prjGEM0 DEPENDS myGEM)
+add_custom_target(prjGEM DEPENDS myGEM)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

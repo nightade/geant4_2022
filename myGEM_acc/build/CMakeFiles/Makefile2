@@ -63,37 +63,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/prjGEM0.dir/clean
+clean: CMakeFiles/prjGEM.dir/clean
 clean: CMakeFiles/myGEM.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/prjGEM0.dir
+# Target rules for target CMakeFiles/prjGEM.dir
 
 # All Build rule for target.
-CMakeFiles/prjGEM0.dir/all: CMakeFiles/myGEM.dir/all
-	$(MAKE) -f CMakeFiles/prjGEM0.dir/build.make CMakeFiles/prjGEM0.dir/depend
-	$(MAKE) -f CMakeFiles/prjGEM0.dir/build.make CMakeFiles/prjGEM0.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles --progress-num= "Built target prjGEM0"
-.PHONY : CMakeFiles/prjGEM0.dir/all
+CMakeFiles/prjGEM.dir/all: CMakeFiles/myGEM.dir/all
+	$(MAKE) -f CMakeFiles/prjGEM.dir/build.make CMakeFiles/prjGEM.dir/depend
+	$(MAKE) -f CMakeFiles/prjGEM.dir/build.make CMakeFiles/prjGEM.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles --progress-num= "Built target prjGEM"
+.PHONY : CMakeFiles/prjGEM.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/prjGEM0.dir/rule: cmake_check_build_system
+CMakeFiles/prjGEM.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/prjGEM0.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/prjGEM.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles 0
-.PHONY : CMakeFiles/prjGEM0.dir/rule
+.PHONY : CMakeFiles/prjGEM.dir/rule
 
 # Convenience name for target.
-prjGEM0: CMakeFiles/prjGEM0.dir/rule
+prjGEM: CMakeFiles/prjGEM.dir/rule
 
-.PHONY : prjGEM0
+.PHONY : prjGEM
 
 # clean rule for target.
-CMakeFiles/prjGEM0.dir/clean:
-	$(MAKE) -f CMakeFiles/prjGEM0.dir/build.make CMakeFiles/prjGEM0.dir/clean
-.PHONY : CMakeFiles/prjGEM0.dir/clean
+CMakeFiles/prjGEM.dir/clean:
+	$(MAKE) -f CMakeFiles/prjGEM.dir/build.make CMakeFiles/prjGEM.dir/clean
+.PHONY : CMakeFiles/prjGEM.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/myGEM.dir
