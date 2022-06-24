@@ -1,12 +1,11 @@
 # GEANT4_2022 (고급물리실험)
-#### Last Update : 22/6/24
-<br>
+### Last Update : 22/6/24<br>
 ### 🚨Tasks soon to be done
 * Ar Gas Medium Avg. Ionization E = ?
 * Avalanche를 잘 묘사하는가?
 * 마무리 방향<br>
-<del>중성자 검출기 He3 대체물질(${}^{10}\text{B} \,, {}^{6}\text{Li} \,, {}^{157}\text{Gd}$) 논의? α Gain? Sufficient for GEM?</del> 시간이 안될 것같습니다..<br>
-<del>Chamber 불순물(습기, 압력, 질소 등)에 따른 노이즈 관찰?</del><br>
+<del>중성자 검출기 He3 대체물질(${}^{10}\text{B} \,, {}^{6}\text{Li} \,, {}^{157}\text{Gd}$) 논의? α Gain? Sufficient for GEM?</del> → 시간부족<br>
+<del>Chamber 불순물(습기, 압력, 질소 등)에 따른 노이즈 관찰?</del> → 시간부족<br>
 <del>전기장 vs Gain (Operation Regime) 관찰?</del> → 전자 초기 KE에 따른 이온화 이벤트 회수 관측하는데에 그침 (부정확)<br>
 <br>
 
