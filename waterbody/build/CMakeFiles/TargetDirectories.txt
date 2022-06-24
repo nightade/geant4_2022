@@ -1,8 +1,0 @@
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/install/local.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/install.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/list_install_components.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/rebuild_cache.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/edit_cache.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/mysim.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/install/strip.dir
-/home/uosp/geant4_workdir/waterbody/build/CMakeFiles/firstsim.dir

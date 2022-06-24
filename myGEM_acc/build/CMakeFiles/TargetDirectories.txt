@@ -1,8 +1,0 @@
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/install/strip.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/install/local.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/install.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/list_install_components.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/rebuild_cache.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/edit_cache.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/prjGEM.dir
-/home/uosp/geant4_workdir/geant4_2022/myGEM_acc/build/CMakeFiles/myGEM.dir
