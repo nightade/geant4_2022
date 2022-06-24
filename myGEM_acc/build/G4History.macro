@@ -34,30 +34,6 @@
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh
 /vis/verbose 0
-/control/execute run.mac
-/run/initialize
-/control/verbose 1
-/run/verbose 0
-/event/verbose 0
-/tracking/verbose 0
-/gun/energy 200 eV
-/run/beamOn 100
+/run/beamOn 500
 /vis/scene/notifyHandlers scene-0
-/gun/energy 400 eV
-/run/beamOn 100
-/gun/energy 600 eV
-/run/beamOn 100
-/gun/energy 800 eV
-/run/beamOn 100
-/gun/energy 1000 eV
-/run/beamOn 100
-/gun/energy 600 eV
-/run/beamOn 100
-/gun/energy 800 eV
-/run/beamOn 100
-/gun/energy 1000 eV
-/run/beamOn 100
-/gun/energy 1200 eV
-/run/beamOn 100
-/gun/energy 1400 eV
-/run/beamOn 100
+/vis/set/touchable WorldPV 0 ChamberPV 0

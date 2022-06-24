@@ -18,7 +18,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(): G4VUserPrimaryGeneratorAction(
   G4ParticleDefinition* particle
     = G4ParticleTable::GetParticleTable()->FindParticle("e-");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleEnergy(50*keV);
+  fParticleGun->SetParticleEnergy(1*keV);
 }
 
 // This function is called at the beginning of each event!

@@ -30,13 +30,20 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4int sizeSecVec = SecVec->size();
     if (sizeSecVec > 0)
     {
-      G4cout << "[!!!] Secondary Produced!" << G4endl;
+      // G4cout << "[!!!] Secondary Produced! - ";
       for (auto iter = SecVec->begin(); iter != SecVec->end(); iter++)
       {
-        G4cout << "Name: " << (*iter)->GetParticleDefinition()->GetParticleName() << G4endl;
-        G4cout << "KE: " << (*iter)->GetKineticEnergy() / CLHEP::eV << " [eV]" << G4endl;
+        G4String name = (*iter)->GetParticleDefinition()->GetParticleName();
+        G4double skin = (*iter)->GetKineticEnergy();
+        
+        // G4cout << "KE: " << (*iter)->GetKineticEnergy() / CLHEP::eV << " [eV]" << G4endl;
+        if(name=="e-")
+        {
+          fNuman->AddupSecondECount();
+          fNuman->AddupSecondKin(skin);
+        }
         if((*iter)->IsBelowThreshold())
-        { G4cout << "~~~~~~~~ This secondary is below threshold!" << G4endl; }
+        { G4cout << "~~~~~~~~~~~~~ This secondary is below threshold!" << G4endl; }
       }
     }
     return;

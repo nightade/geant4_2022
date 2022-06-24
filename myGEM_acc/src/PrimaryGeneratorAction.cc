@@ -18,7 +18,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(): G4VUserPrimaryGeneratorAction(
   G4ParticleDefinition* particle
     = G4ParticleTable::GetParticleTable()->FindParticle("e-");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleEnergy(0.001*eV);
+  fParticleGun->SetParticleEnergy(1*eV);
 }
 
 // This function is called at the beginning of each event!
@@ -30,19 +30,19 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent){
   // G4double Z0 = Box->GetZHalfLength();
 
   G4ThreeVector port = NumberManager::Instance()->GetBeamPort();
-  // G4double r0 = port[0] * std::sqrt(G4UniformRand())/2; // port[0] = Diameter
-  // G4double t0 = (360*deg) * (G4UniformRand()-0.5);
-  // G4double x0 = r0 * std::cos(t0);
-  // G4double y0 = r0 * std::sin(t0);
-
   // G4double x0 = port[0] * (G4UniformRand()-0.5);
   // G4double y0 = port[1] * (G4UniformRand()-0.5);
-  G4double z0 = port[2];
-  fParticleGun->SetParticlePosition(G4ThreeVector(0., 0., z0));
+  // G4double z0 = port[2];
 
-  G4double px = 0.1 * (G4UniformRand()-0.5);
-  G4double py = 0.1 * (G4UniformRand()-0.5);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(px, py, -1.));
+  G4double x0 = (100*um) * (G4UniformRand()-0.5);
+  G4double y0 = (100*um) * (G4UniformRand()-0.5);
+  G4double z0 = 5*um + (110*um) * (G4UniformRand()-0.5);
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0, y0, z0));
 
+  G4double px = 1.0 * (G4UniformRand()-0.5);
+  G4double py = 1.0 * (G4UniformRand()-0.5);
+  G4double pz = 1.0 * (G4UniformRand()-0.5);
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(px, py, pz));
+  // fParticleGun->SetParticleMomentumDirection(G4ThreeVector(1, 0, 0));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }

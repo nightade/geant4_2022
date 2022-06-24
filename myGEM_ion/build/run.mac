@@ -9,27 +9,38 @@
 /gun/particle e-
 /vis/viewer/set/viewpointThetaPhi 80 20 deg
 #
-/gun/energy 0.5 keV
-/run/beamOn 100
-/vis/ogl/export 05kev.png
+/gun/energy 10 eV
+/run/beamOn 1000
+/vis/ogl/export 1.png
+
+/gun/energy 50 eV
+/run/beamOn 1000
+/vis/ogl/export 2.png
+
+/gun/energy 100 eV
+/run/beamOn 1000
+/vis/ogl/export 3.png
+
+/gun/energy 500 eV
+/run/beamOn 1000
+/vis/ogl/export 4.png
+
 /gun/energy 1 keV
-/run/beamOn 100
-/vis/ogl/export 1kev.png
-/gun/energy 3 keV
-/run/beamOn 100
-/vis/ogl/export 3kev.png
-/gun/energy 5 keV
-/run/beamOn 100
+/run/beamOn 1000
 /vis/ogl/export 5kev.png
-/gun/energy 7 keV
-/run/beamOn 100
-/vis/ogl/export 7kev.png
-/gun/energy 9 keV
-/run/beamOn 100
-/vis/ogl/export 9kev.png
+
+/gun/energy 5 keV
+/run/beamOn 1000
+/vis/ogl/export 6kev.png
+
 /gun/energy 10 keV
-/run/beamOn 100
-/vis/ogl/export 12kev.png
-/gun/energy 15 keV
-/run/beamOn 100
-/vis/ogl/export 15kev.png
+/run/beamOn 1000
+/vis/ogl/export 7kev.png
+
+/gun/energy 50 keV
+/run/beamOn 1000
+/vis/ogl/export 8kev.png
+
+/gun/energy 100 keV
+/vis/ogl/export 9kev.png
+/run/beamOn 1000

@@ -42,10 +42,8 @@ void RunAction::EndOfRunAction(const G4Run*)
 
   G4cout << ">> Your SD has detected " << numan->GetSDHitCount() << " Hits." << G4endl;
 
-  G4double kinMean = numan->GetKinStat(false);
-  G4double kinStdv = numan->GetKinStat(true);
-  G4cout << ">> Detected Kinetic Energy:" << "Mean. " << kinMean/eV << " eV";
-  G4cout << "... Stdv. " << kinStdv/eV << " eV" << G4endl;  
+  G4double kinMean = numan->GetKinStat();
+  G4cout << ">> Detected Kinetic Energy:" << "Mean. " << kinMean/eV << " eV" << G4endl;
 
   numan->SetValuesZero();
 }

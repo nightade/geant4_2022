@@ -22,34 +22,47 @@
 // * use  in  resulting  scientific  publications,  and indicate your *
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
-//
 
-#ifndef G4EmPenelopePhysics_h
-#define G4EmPenelopePhysics_h 1
+#include "G4VEnergyLossProcess.hh"
+#include "G4Electron.hh"
+#include "G4Positron.hh"
+#include "G4VEmModel.hh"
 
-#include "G4VPhysicsConstructor.hh"
-#include "globals.hh"
+class G4Material;
+class G4ParticleDefinition;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-class G4EmPenelopePhysics : public G4VPhysicsConstructor
+class G4eIonisation : public G4VEnergyLossProcess
 {
+
 public:
 
-  explicit G4EmPenelopePhysics(G4int ver=1, const G4String& name="");
+  explicit G4eIonisation(const G4String& name = "eIoni");
 
-  ~G4EmPenelopePhysics() override;
+  ~G4eIonisation() override;
 
-  void ConstructParticle() override;
-  void ConstructProcess() override;
+  G4bool IsApplicable(const G4ParticleDefinition& p) final;
+
+  // print documentation in html format
+  void ProcessDescription(std::ostream&) const override;
+
+  // hide assignment operator
+  G4eIonisation & operator=(const G4eIonisation &right) = delete;
+  G4eIonisation(const G4eIonisation&) = delete;
+
+protected:
+
+  void InitialiseEnergyLossProcess(const G4ParticleDefinition*,
+  			           const G4ParticleDefinition*) override;
+
+  G4double MinPrimaryEnergy(const G4ParticleDefinition*,
+			    const G4Material*, G4double cut) final;
+
+private:
+
+  const G4ParticleDefinition* theElectron;
+
+  G4bool isElectron;
+  G4bool isInitialised;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-#endif
-
-
-
-
-
-

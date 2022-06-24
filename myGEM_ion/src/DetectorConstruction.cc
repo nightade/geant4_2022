@@ -26,16 +26,23 @@ DetectorConstruction::DetectorConstruction()
   // ========== DEFINE MATERIALS ========== //
   G4NistManager* nist = G4NistManager::Instance();
   
-  fWorldMaterial = nist->FindOrBuildMaterial("G4_Ar");
-  fChamberMaterial = nist->FindOrBuildMaterial("G4_Ar");
-  fTargetMaterial = nist->FindOrBuildMaterial("G4_Ar");
-  // fGEMMaterial = nist->FindOrBuildMaterial("G4_AIR");
+  G4double a = 39.95*g/mole;
+  G4double dens = 1.6329e-03*g/cm3;
+  G4double pres = 1*atmosphere;
+  G4double temp = 298.15*kelvin;
+  G4Material* gasAr = new G4Material("ArgonGas", 18, a, dens, kStateGas, temp, pres);
+  
+  fWorldMaterial = nist->FindOrBuildMaterial("G4_Galactic");
+  // fChamberMaterial = nist->FindOrBuildMaterial("gasAr");
+  // fTargetMaterial = nist->FindOrBuildMaterial("gasAr");
+  fChamberMaterial = gasAr;
+  fTargetMaterial = gasAr;
+  
 
   G4cout << ">> [DetectorConstruction] Materials have been defined as follows" << G4endl;
   G4cout << ">> ... World   : " << fWorldMaterial->GetName() << G4endl;
   G4cout << ">> ... Chamber : " << fChamberMaterial->GetName() << G4endl;
   G4cout << ">> ... Target  : " << fTargetMaterial->GetName() << G4endl;
-  // G4cout << ">> ... GEM     : " << fGEMMaterial->GetName() << G4endl;
 }
 DetectorConstruction::~DetectorConstruction() { }
 
@@ -48,14 +55,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   fChamberSize = G4ThreeVector(100*um, 100*um, 120*um); // data from Gijin
   fChamberPos = G4ThreeVector();
   
-  G4ThreeVector WorldSize = 1.2 * fChamberSize;
+  G4ThreeVector WorldSize = 1. * fChamberSize;
 
   fTargetSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 10*um);
   fTargetPos = G4ThreeVector(0, 0, -(fChamberSize[2] - fTargetSize[2])/2);
-
-  // G4ThreeVector gemSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 55*um);
-  // G4double holeDiam = 70*um;
-  // G4ThreeVector gemPos = G4ThreeVector();
 
   G4ThreeVector sensorSize = G4ThreeVector(5*um, 5*um, fTargetSize[2]);
   G4double sensorUnit = 1*um;

@@ -96,9 +96,22 @@ CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/F02ElectricFieldSetup.cc -o CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.s
 
+CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o: CMakeFiles/myGEM.dir/flags.make
+CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o: ../src/MyEmLivermorePhysics.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmLivermorePhysics.cc
+
+CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmLivermorePhysics.cc > CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.i
+
+CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmLivermorePhysics.cc -o CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.s
+
 CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o: ../src/MyEmPenelopePhysics.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmPenelopePhysics.cc
 
 CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.i: cmake_force
@@ -109,9 +122,48 @@ CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmPenelopePhysics.cc -o CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.s
 
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o: CMakeFiles/myGEM.dir/flags.make
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o: ../src/MyEmStandardPhysics.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics.cc
+
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics.cc > CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.i
+
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics.cc -o CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.s
+
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o: CMakeFiles/myGEM.dir/flags.make
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o: ../src/MyEmStandardPhysics_option3.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics_option3.cc
+
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics_option3.cc > CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.i
+
+CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyEmStandardPhysics_option3.cc -o CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.s
+
+CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o: CMakeFiles/myGEM.dir/flags.make
+CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o: ../src/MyeIonisation.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyeIonisation.cc
+
+CMakeFiles/myGEM.dir/src/MyeIonisation.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myGEM.dir/src/MyeIonisation.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyeIonisation.cc > CMakeFiles/myGEM.dir/src/MyeIonisation.cc.i
+
+CMakeFiles/myGEM.dir/src/MyeIonisation.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myGEM.dir/src/MyeIonisation.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/MyeIonisation.cc -o CMakeFiles/myGEM.dir/src/MyeIonisation.cc.s
+
 CMakeFiles/myGEM.dir/src/NumberManager.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/NumberManager.cc.o: ../src/NumberManager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/myGEM.dir/src/NumberManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/myGEM.dir/src/NumberManager.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/NumberManager.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/NumberManager.cc
 
 CMakeFiles/myGEM.dir/src/NumberManager.cc.i: cmake_force
@@ -124,7 +176,7 @@ CMakeFiles/myGEM.dir/src/NumberManager.cc.s: cmake_force
 
 CMakeFiles/myGEM.dir/src/PhysicsList.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/PhysicsList.cc.o: ../src/PhysicsList.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/myGEM.dir/src/PhysicsList.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/myGEM.dir/src/PhysicsList.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/PhysicsList.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/PhysicsList.cc
 
 CMakeFiles/myGEM.dir/src/PhysicsList.cc.i: cmake_force
@@ -137,7 +189,7 @@ CMakeFiles/myGEM.dir/src/PhysicsList.cc.s: cmake_force
 
 CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -150,7 +202,7 @@ CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 
 CMakeFiles/myGEM.dir/src/RunAction.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/RunAction.cc.o: ../src/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/myGEM.dir/src/RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/myGEM.dir/src/RunAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/RunAction.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/RunAction.cc
 
 CMakeFiles/myGEM.dir/src/RunAction.cc.i: cmake_force
@@ -163,7 +215,7 @@ CMakeFiles/myGEM.dir/src/RunAction.cc.s: cmake_force
 
 CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o: ../src/SensitiveDetector.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/SensitiveDetector.cc
 
 CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.i: cmake_force
@@ -176,7 +228,7 @@ CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.s: cmake_force
 
 CMakeFiles/myGEM.dir/src/SteppingAction.cc.o: CMakeFiles/myGEM.dir/flags.make
 CMakeFiles/myGEM.dir/src/SteppingAction.cc.o: ../src/SteppingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/myGEM.dir/src/SteppingAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/myGEM.dir/src/SteppingAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myGEM.dir/src/SteppingAction.cc.o -c /home/uosp/geant4_workdir/geant4_2022/myGEM_ion/src/SteppingAction.cc
 
 CMakeFiles/myGEM.dir/src/SteppingAction.cc.i: cmake_force
@@ -192,7 +244,11 @@ myGEM_OBJECTS = \
 "CMakeFiles/myGEM.dir/sim.cc.o" \
 "CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o" \
 "CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o" \
+"CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o" \
 "CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o" \
+"CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o" \
+"CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o" \
+"CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o" \
 "CMakeFiles/myGEM.dir/src/NumberManager.cc.o" \
 "CMakeFiles/myGEM.dir/src/PhysicsList.cc.o" \
 "CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o" \
@@ -206,7 +262,11 @@ myGEM_EXTERNAL_OBJECTS =
 myGEM: CMakeFiles/myGEM.dir/sim.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o
+myGEM: CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o
+myGEM: CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o
+myGEM: CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o
+myGEM: CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/NumberManager.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/PhysicsList.cc.o
 myGEM: CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o
@@ -262,7 +322,7 @@ myGEM: /home/uosp/Software/geant4-install/lib/libG4global.so
 myGEM: /home/uosp/Software/geant4-install/lib/libG4clhep.so
 myGEM: /home/uosp/Software/geant4-install/lib/libG4ptl.so.0.0.2
 myGEM: CMakeFiles/myGEM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable myGEM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uosp/geant4_workdir/geant4_2022/myGEM_ion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable myGEM"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myGEM.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

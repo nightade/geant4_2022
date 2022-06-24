@@ -263,6 +263,33 @@ src/F02ElectricFieldSetup.cc.s:
 	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.s
 .PHONY : src/F02ElectricFieldSetup.cc.s
 
+src/MyEmLivermorePhysics.o: src/MyEmLivermorePhysics.cc.o
+
+.PHONY : src/MyEmLivermorePhysics.o
+
+# target to build an object file
+src/MyEmLivermorePhysics.cc.o:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.o
+.PHONY : src/MyEmLivermorePhysics.cc.o
+
+src/MyEmLivermorePhysics.i: src/MyEmLivermorePhysics.cc.i
+
+.PHONY : src/MyEmLivermorePhysics.i
+
+# target to preprocess a source file
+src/MyEmLivermorePhysics.cc.i:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.i
+.PHONY : src/MyEmLivermorePhysics.cc.i
+
+src/MyEmLivermorePhysics.s: src/MyEmLivermorePhysics.cc.s
+
+.PHONY : src/MyEmLivermorePhysics.s
+
+# target to generate assembly for a file
+src/MyEmLivermorePhysics.cc.s:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmLivermorePhysics.cc.s
+.PHONY : src/MyEmLivermorePhysics.cc.s
+
 src/MyEmPenelopePhysics.o: src/MyEmPenelopePhysics.cc.o
 
 .PHONY : src/MyEmPenelopePhysics.o
@@ -289,6 +316,87 @@ src/MyEmPenelopePhysics.s: src/MyEmPenelopePhysics.cc.s
 src/MyEmPenelopePhysics.cc.s:
 	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.s
 .PHONY : src/MyEmPenelopePhysics.cc.s
+
+src/MyEmStandardPhysics.o: src/MyEmStandardPhysics.cc.o
+
+.PHONY : src/MyEmStandardPhysics.o
+
+# target to build an object file
+src/MyEmStandardPhysics.cc.o:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.o
+.PHONY : src/MyEmStandardPhysics.cc.o
+
+src/MyEmStandardPhysics.i: src/MyEmStandardPhysics.cc.i
+
+.PHONY : src/MyEmStandardPhysics.i
+
+# target to preprocess a source file
+src/MyEmStandardPhysics.cc.i:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.i
+.PHONY : src/MyEmStandardPhysics.cc.i
+
+src/MyEmStandardPhysics.s: src/MyEmStandardPhysics.cc.s
+
+.PHONY : src/MyEmStandardPhysics.s
+
+# target to generate assembly for a file
+src/MyEmStandardPhysics.cc.s:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics.cc.s
+.PHONY : src/MyEmStandardPhysics.cc.s
+
+src/MyEmStandardPhysics_option3.o: src/MyEmStandardPhysics_option3.cc.o
+
+.PHONY : src/MyEmStandardPhysics_option3.o
+
+# target to build an object file
+src/MyEmStandardPhysics_option3.cc.o:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.o
+.PHONY : src/MyEmStandardPhysics_option3.cc.o
+
+src/MyEmStandardPhysics_option3.i: src/MyEmStandardPhysics_option3.cc.i
+
+.PHONY : src/MyEmStandardPhysics_option3.i
+
+# target to preprocess a source file
+src/MyEmStandardPhysics_option3.cc.i:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.i
+.PHONY : src/MyEmStandardPhysics_option3.cc.i
+
+src/MyEmStandardPhysics_option3.s: src/MyEmStandardPhysics_option3.cc.s
+
+.PHONY : src/MyEmStandardPhysics_option3.s
+
+# target to generate assembly for a file
+src/MyEmStandardPhysics_option3.cc.s:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyEmStandardPhysics_option3.cc.s
+.PHONY : src/MyEmStandardPhysics_option3.cc.s
+
+src/MyeIonisation.o: src/MyeIonisation.cc.o
+
+.PHONY : src/MyeIonisation.o
+
+# target to build an object file
+src/MyeIonisation.cc.o:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyeIonisation.cc.o
+.PHONY : src/MyeIonisation.cc.o
+
+src/MyeIonisation.i: src/MyeIonisation.cc.i
+
+.PHONY : src/MyeIonisation.i
+
+# target to preprocess a source file
+src/MyeIonisation.cc.i:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyeIonisation.cc.i
+.PHONY : src/MyeIonisation.cc.i
+
+src/MyeIonisation.s: src/MyeIonisation.cc.s
+
+.PHONY : src/MyeIonisation.s
+
+# target to generate assembly for a file
+src/MyeIonisation.cc.s:
+	$(MAKE) -f CMakeFiles/myGEM.dir/build.make CMakeFiles/myGEM.dir/src/MyeIonisation.cc.s
+.PHONY : src/MyeIonisation.cc.s
 
 src/NumberManager.o: src/NumberManager.cc.o
 
@@ -475,9 +583,21 @@ help:
 	@echo "... src/F02ElectricFieldSetup.o"
 	@echo "... src/F02ElectricFieldSetup.i"
 	@echo "... src/F02ElectricFieldSetup.s"
+	@echo "... src/MyEmLivermorePhysics.o"
+	@echo "... src/MyEmLivermorePhysics.i"
+	@echo "... src/MyEmLivermorePhysics.s"
 	@echo "... src/MyEmPenelopePhysics.o"
 	@echo "... src/MyEmPenelopePhysics.i"
 	@echo "... src/MyEmPenelopePhysics.s"
+	@echo "... src/MyEmStandardPhysics.o"
+	@echo "... src/MyEmStandardPhysics.i"
+	@echo "... src/MyEmStandardPhysics.s"
+	@echo "... src/MyEmStandardPhysics_option3.o"
+	@echo "... src/MyEmStandardPhysics_option3.i"
+	@echo "... src/MyEmStandardPhysics_option3.s"
+	@echo "... src/MyeIonisation.o"
+	@echo "... src/MyeIonisation.i"
+	@echo "... src/MyeIonisation.s"
 	@echo "... src/NumberManager.o"
 	@echo "... src/NumberManager.i"
 	@echo "... src/NumberManager.s"

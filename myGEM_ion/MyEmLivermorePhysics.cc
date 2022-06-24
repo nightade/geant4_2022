@@ -24,47 +24,50 @@
 // ********************************************************************
 //
 
-#include "G4EmPenelopePhysics.hh"
+#include "G4EmLivermorePhysics.hh"
 #include "G4ParticleDefinition.hh"
 #include "G4SystemOfUnits.hh"
 
 // *** Processes and models
-
 // gamma
-
 #include "G4PhotoElectricEffect.hh"
-#include "G4PenelopePhotoElectricModel.hh"
+#include "G4LivermorePhotoElectricModel.hh"
+#include "G4PhotoElectricAngularGeneratorPolarized.hh"
 
 #include "G4ComptonScattering.hh"
-#include "G4PenelopeComptonModel.hh"
+#include "G4LivermoreComptonModel.hh"
+#include "G4LivermorePolarizedComptonModel.hh"
+#include "G4KleinNishinaModel.hh"
+#include "G4LowEPPolarizedComptonModel.hh"
 
 #include "G4GammaConversion.hh"
-#include "G4PenelopeGammaConversionModel.hh"
+#include "G4LivermoreGammaConversionModel.hh"
+#include "G4LivermoreGammaConversion5DModel.hh"
 
 #include "G4RayleighScattering.hh" 
-#include "G4PenelopeRayleighModel.hh"
+#include "G4LivermoreRayleighModel.hh"
+#include "G4LivermorePolarizedRayleighModel.hh"
 
 #include "G4PEEffectFluoModel.hh"
 #include "G4KleinNishinaModel.hh"
 
-// e- and e+
-
+// e+-
 #include "G4eMultipleScattering.hh"
 #include "G4UniversalFluctuation.hh"
 
 #include "G4eIonisation.hh"
-#include "G4PenelopeIonisationModel.hh"
+#include "G4LivermoreIonisationModel.hh"
 
 #include "G4eBremsstrahlung.hh"
-#include "G4PenelopeBremsstrahlungModel.hh"
+#include "G4LivermoreBremsstrahlungModel.hh"
+#include "G4Generator2BS.hh"
+#include "G4SeltzerBergerModel.hh"
+#include "G4BetheHeitler5DModel.hh"
 
-// e+ only
-
+// e+
 #include "G4eplusAnnihilation.hh"
-#include "G4PenelopeAnnihilationModel.hh"
 
 // hadrons
-
 #include "G4hMultipleScattering.hh"
 #include "G4MscStepLimitType.hh"
 
@@ -77,12 +80,13 @@
 
 // msc models
 #include "G4UrbanMscModel.hh"
-#include "G4GoudsmitSaundersonMscModel.hh"
 #include "G4WentzelVIModel.hh"
+#include "G4GoudsmitSaundersonMscModel.hh"
 #include "G4CoulombScattering.hh"
 #include "G4eCoulombScatteringModel.hh"
-//
 
+// interfaces
+#include "G4EmParameters.hh"
 #include "G4EmBuilder.hh"
 
 // particles
@@ -100,12 +104,12 @@
 // factory
 #include "G4PhysicsConstructorFactory.hh"
 //
-G4_DECLARE_PHYSCONSTR_FACTORY(G4EmPenelopePhysics);
+G4_DECLARE_PHYSCONSTR_FACTORY(G4EmLivermorePhysics);
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4EmPenelopePhysics::G4EmPenelopePhysics(G4int ver, const G4String&)
-  : G4VPhysicsConstructor("G4EmPenelope")
+G4EmLivermorePhysics::G4EmLivermorePhysics(G4int ver, const G4String& pname)
+  : G4VPhysicsConstructor(pname)
 {
   SetVerboseLevel(ver);
   G4EmParameters* param = G4EmParameters::Instance();
@@ -126,18 +130,17 @@ G4EmPenelopePhysics::G4EmPenelopePhysics(G4int ver, const G4String&)
   param->SetMuHadLateralDisplacement(true);
   param->SetFluo(true);
   param->SetMaxNIELEnergy(1*CLHEP::MeV);
-  param->SetPIXEElectronCrossSectionModel("Penelope");
   SetPhysicsType(bElectromagnetic);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4EmPenelopePhysics::~G4EmPenelopePhysics()
+G4EmLivermorePhysics::~G4EmLivermorePhysics()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void G4EmPenelopePhysics::ConstructParticle()
+void G4EmLivermorePhysics::ConstructParticle()
 {
   // minimal set of particles for EM physics
   G4EmBuilder::ConstructMinimalEmSet();
@@ -145,7 +148,7 @@ void G4EmPenelopePhysics::ConstructParticle()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void G4EmPenelopePhysics::ConstructProcess()
+void G4EmLivermorePhysics::ConstructProcess()
 {
   if(verboseLevel > 1) {
     G4cout << "### " << GetPhysicsName() << " Construct Processes " << G4endl;
@@ -158,7 +161,8 @@ void G4EmPenelopePhysics::ConstructProcess()
   G4hMultipleScattering* hmsc = new G4hMultipleScattering("ionmsc");
 
   // high energy limit for e+- scattering models
-  G4double highEnergyLimit = param->MscEnergyLimit();
+  G4double highEnergyLimit= param->MscEnergyLimit();
+  G4double livEnergyLimit = 1*CLHEP::GeV;
 
   // nuclear stopping
   G4double nielEnergyLimit = param->MaxNIELEnergy();
@@ -168,47 +172,53 @@ void G4EmPenelopePhysics::ConstructProcess()
     pnuc->SetMaxKinEnergy(nielEnergyLimit);
   }
 
-  //Applicability range for Penelope models
-  //for higher energies, the Standard models are used   
-  G4double PenelopeHighEnergyLimit = 1.0*CLHEP::GeV;
+  // Add Livermore EM Processes
 
   // Add gamma EM Processes
   G4ParticleDefinition* particle = G4Gamma::Gamma();
+  G4bool polar = param->EnablePolarisation();
 
-  //Photo-electric effect
-  G4PhotoElectricEffect* thePhotoElectricEffect = new G4PhotoElectricEffect();
-  thePhotoElectricEffect->SetEmModel(new G4PEEffectFluoModel());
-  G4PenelopePhotoElectricModel* thePEPenelopeModel = new G4PenelopePhotoElectricModel();   
-  thePEPenelopeModel->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  thePhotoElectricEffect->AddEmModel(0, thePEPenelopeModel);
+  // photoelectric effect - Livermore model only
+  G4PhotoElectricEffect* pe = new G4PhotoElectricEffect();
+  G4VEmModel* peModel = new G4LivermorePhotoElectricModel();
+  pe->SetEmModel(peModel);
+  if(polar) {
+    peModel->SetAngularDistribution(new G4PhotoElectricAngularGeneratorPolarized());
+  }
 
-  //Compton scattering
-  G4ComptonScattering* theComptonScattering = new G4ComptonScattering();
-  G4PenelopeComptonModel* theComptonPenelopeModel = new G4PenelopeComptonModel();
-  theComptonScattering->SetEmModel(new G4KleinNishinaModel());
-  theComptonPenelopeModel->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  theComptonScattering->AddEmModel(0, theComptonPenelopeModel);
+  // Compton scattering - Livermore model only
+  G4ComptonScattering* cs = new G4ComptonScattering;
+  cs->SetEmModel(new G4KleinNishinaModel());
+  G4VEmModel* cModel = nullptr;
+  if(polar) { 
+    cModel = new G4LivermorePolarizedComptonModel();
+    cModel->SetHighEnergyLimit(20*CLHEP::MeV);
+  } else {
+    cModel = new G4LivermoreComptonModel();
+    cModel->SetHighEnergyLimit(livEnergyLimit);
+  }
+  cs->AddEmModel(0, cModel);
 
-  //Gamma conversion
-  G4GammaConversion* theGammaConversion = new G4GammaConversion();
-  G4PenelopeGammaConversionModel* theGCPenelopeModel = new G4PenelopeGammaConversionModel();
-  theGCPenelopeModel->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  theGammaConversion->AddEmModel(0, theGCPenelopeModel);
+  // gamma conversion 
+  G4GammaConversion* gc = new G4GammaConversion();
+  G4VEmModel* convLiv = new G4LivermoreGammaConversion5DModel();
+  gc->SetEmModel(convLiv);
 
-  //Rayleigh scattering
-  G4RayleighScattering* theRayleigh = new G4RayleighScattering();
-  G4PenelopeRayleighModel* theRayleighPenelopeModel = new G4PenelopeRayleighModel();
-  theRayleigh->SetEmModel(theRayleighPenelopeModel);
+  // Rayleigh scattering
+  G4RayleighScattering* rl = new G4RayleighScattering();
+  if(polar) {
+    rl->SetEmModel(new G4LivermorePolarizedRayleighModel());
+  }
 
-  ph->RegisterProcess(thePhotoElectricEffect, particle);
-  ph->RegisterProcess(theComptonScattering, particle);
-  ph->RegisterProcess(theGammaConversion, particle);
-  ph->RegisterProcess(theRayleigh, particle);
+  ph->RegisterProcess(pe, particle);
+  ph->RegisterProcess(cs, particle);
+  ph->RegisterProcess(gc, particle);
+  ph->RegisterProcess(rl, particle);
 
   // e-
   particle = G4Electron::Electron();
 
-  // multiple scattering
+  // multiple and single scattering
   G4eMultipleScattering* msc = new G4eMultipleScattering;
   G4GoudsmitSaundersonMscModel* msc1 = new G4GoudsmitSaundersonMscModel();
   G4WentzelVIModel* msc2 = new G4WentzelVIModel();
@@ -224,20 +234,24 @@ void G4EmPenelopePhysics::ConstructProcess()
   ssm->SetLowEnergyLimit(highEnergyLimit);
   ssm->SetActivationLowEnergyLimit(highEnergyLimit);
       
-  //Ionisation
+  // Ionisation - Livermore should be used only for low energies
   G4eIonisation* eioni = new G4eIonisation();
-  G4PenelopeIonisationModel* theIoniPenelope = new G4PenelopeIonisationModel();
-  theIoniPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);     
-  eioni->AddEmModel(0, theIoniPenelope, new G4UniversalFluctuation());
+  G4VEmModel* theIoniLiv = new G4LivermoreIonisationModel();
+  theIoniLiv->SetHighEnergyLimit(0.1*CLHEP::MeV); 
+  eioni->AddEmModel(0, theIoniLiv, new G4UniversalFluctuation() );
       
-  //Bremsstrahlung
+  // Bremsstrahlung
   G4eBremsstrahlung* brem = new G4eBremsstrahlung();
-  G4PenelopeBremsstrahlungModel* theBremPenelope = new G4PenelopeBremsstrahlungModel();
-  theBremPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  brem->SetEmModel(theBremPenelope);
+  G4SeltzerBergerModel* br1 = new G4SeltzerBergerModel();
+  G4eBremsstrahlungRelModel* br2 = new G4eBremsstrahlungRelModel();
+  br1->SetAngularDistribution(new G4Generator2BS());
+  br2->SetAngularDistribution(new G4Generator2BS());
+  brem->SetEmModel(br1);
+  brem->SetEmModel(br2);
+  br1->SetHighEnergyLimit(GeV);
 
   G4ePairProduction* ee = new G4ePairProduction();
-
+     
   // register processes
   ph->RegisterProcess(msc, particle);
   ph->RegisterProcess(eioni, particle);
@@ -247,8 +261,8 @@ void G4EmPenelopePhysics::ConstructProcess()
 
   // e+
   particle = G4Positron::Positron();
-    
-  // multiple scattering
+
+  // multiple and single scattering
   msc = new G4eMultipleScattering;
   msc1 = new G4GoudsmitSaundersonMscModel();
   msc2 = new G4WentzelVIModel();
@@ -263,31 +277,26 @@ void G4EmPenelopePhysics::ConstructProcess()
   ss->SetMinKinEnergy(highEnergyLimit);
   ssm->SetLowEnergyLimit(highEnergyLimit);
   ssm->SetActivationLowEnergyLimit(highEnergyLimit);
-      
-  //Ionisation
-  eioni = new G4eIonisation();
-  theIoniPenelope = new G4PenelopeIonisationModel();
-  theIoniPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  eioni->AddEmModel(0,theIoniPenelope, new G4UniversalFluctuation());
 
-  //Bremsstrahlung
+  // ionisation
+  eioni = new G4eIonisation();
+
+  // Bremsstrahlung from standard
   brem = new G4eBremsstrahlung();
-  theBremPenelope = new G4PenelopeBremsstrahlungModel();
-  theBremPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  brem->SetEmModel(theBremPenelope);
-      
-  //Annihilation
-  G4eplusAnnihilation* anni = new G4eplusAnnihilation();
-  G4PenelopeAnnihilationModel* theAnnPenelope = new G4PenelopeAnnihilationModel();
-  theAnnPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  anni->AddEmModel(0, theAnnPenelope);
+  br1 = new G4SeltzerBergerModel();
+  br2 = new G4eBremsstrahlungRelModel();
+  br1->SetAngularDistribution(new G4Generator2BS());
+  br2->SetAngularDistribution(new G4Generator2BS());
+  brem->SetEmModel(br1);
+  brem->SetEmModel(br2);
+  br1->SetHighEnergyLimit(GeV);
 
   // register processes
   ph->RegisterProcess(msc, particle);
   ph->RegisterProcess(eioni, particle);
   ph->RegisterProcess(brem, particle);
   ph->RegisterProcess(ee, particle);
-  ph->RegisterProcess(anni, particle);
+  ph->RegisterProcess(new G4eplusAnnihilation(), particle);
   ph->RegisterProcess(ss, particle);
 
   // generic ion
@@ -303,6 +312,7 @@ void G4EmPenelopePhysics::ConstructProcess()
 
   // extra configuration
   G4EmModelActivator mact(GetPhysicsName());
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

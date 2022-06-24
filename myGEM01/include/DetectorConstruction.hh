@@ -45,11 +45,14 @@ private:
   G4LogicalVolume*  fLogicChamber = nullptr;
   G4LogicalVolume* fLogicTarget = nullptr;
   G4LogicalVolume* fLogicSensitive = nullptr;
+  G4LogicalVolume* fLogicGEM = nullptr;
+  G4LogicalVolume* fLogicFoil = nullptr;
 
   G4Material* fWorldMaterial = nullptr;
   G4Material* fChamberMaterial = nullptr;
-  G4Material* fGEMMaterial = nullptr;
   G4Material* fTargetMaterial = nullptr;
+  G4Material* fGEMMaterial = nullptr;
+  G4Material* fFoilMaterial = nullptr;
 
   // (X-size, Y-size, Z-size)
   // Reminder: Construct() requires half of those values

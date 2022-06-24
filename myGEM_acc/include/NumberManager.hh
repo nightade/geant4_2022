@@ -9,23 +9,26 @@ public:
   ~NumberManager();
 
   // ========== GETTERS ========== //
-  G4ThreeVector GetBeamPort();
-  G4double GetSensorUnit();
-  G4int GetSDHitCount();
-  G4int GetRunCount();
+  inline G4ThreeVector GetBeamPort() { return fBeamPort; }
+  inline G4double GetSensorUnit() { return fSensorUnit; }
+  inline G4int GetSDHitCount() { return fSDHitCount; }
+  inline G4int GetRunCount() { return fRunCount; }
 
-  G4double GetEdep();
-  G4double GetKinStat(G4bool);
+  inline G4double GetEdep() { return fEdep; }
+  inline G4double GetKinStat() { return fKin/fSDHitCount; }
+  inline G4ThreeVector GetEField() { return fEField; }
 
   // ========== SET & ADDUP ========== //
-  void SetBeamPort(G4ThreeVector);
-  void SetSensorUnit(G4double);
-  void AddupSDHitCount();
-  void AddupRunCount();
-  void SetValuesZero();
+  inline void SetBeamPort(G4ThreeVector vec) { fBeamPort = vec; }
+  inline void SetSensorUnit(G4double unit) { fSensorUnit = unit; }
+  inline void AddupSDHitCount() { fSDHitCount = fSDHitCount + 1; }
+  inline void AddupRunCount() { fRunCount = fRunCount + 1; }
+  inline void SetValuesZero() { fSDHitCount = 0; fEdep = 0; fKin = 0; fKin2 = 0; }
 
-  void AddupEdep(G4double);
-  void AddupKin(G4double);
+  inline void AddupEdep(G4double edep) { fEdep = fEdep + edep; }
+  inline void AddupKin(G4double kin) { fKin = fKin + kin; }
+
+  inline void SetEField(G4ThreeVector vecE) { fEField = vecE; }
 
 private:
   NumberManager();
@@ -40,4 +43,6 @@ private:
   G4double fEdep = 0;
   G4double fKin = 0;
   G4double fKin2 = 0;
+
+  G4ThreeVector fEField = G4ThreeVector();
 };

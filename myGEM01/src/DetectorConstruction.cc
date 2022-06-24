@@ -10,6 +10,8 @@
 #include "G4Material.hh"
 #include "G4Box.hh"
 #include "G4Tubs.hh"
+#include "G4Cons.hh"
+#include "G4UnionSolid.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
@@ -40,30 +42,35 @@ void DetectorConstruction::DefineMaterials()
 
   fWorldMaterial = nist->FindOrBuildMaterial("G4_Ar");
   fChamberMaterial = nist->FindOrBuildMaterial("G4_Ar");
-  // fTargetMaterial = nist->FindOrBuildMaterial("G4_Cu");
   fTargetMaterial = fChamberMaterial;
-  fGEMMaterial = nist->FindOrBuildMaterial("G4_AIR");
+  fGEMMaterial = nist->FindOrBuildMaterial("G4_Kapton");
+  fFoilMaterial = nist->FindOrBuildMaterial("G4_Cu");
 
   G4cout << ">> [DetectorConstruction] Materials have been defined as follows" << G4endl;
   G4cout << ">> ... World   : " << fWorldMaterial->GetName() << G4endl;
   G4cout << ">> ... Chamber : " << fChamberMaterial->GetName() << G4endl;
-  G4cout << ">> ... GEM     : " << fGEMMaterial->GetName() << G4endl;
   G4cout << ">> ... Target  : " << fTargetMaterial->GetName() << G4endl;
+  G4cout << ">> ... GEM     : " << fGEMMaterial->GetName() << G4endl;
+  G4cout << ">> ... Foil     : " << fFoilMaterial->GetName() << G4endl;
 }
 
 G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
 {
   // CONTROL PANEL ===================================== 
-  fChamberSize = G4ThreeVector(100*um, 100*um, 200*um);
+  fChamberSize = G4ThreeVector(100*um, 100*um, 120*um);
   fChamberPos = G4ThreeVector();
   G4ThreeVector WorldSize = 1.2 * fChamberSize;
-
-  G4ThreeVector gemSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 55*um);
-  G4double holeDiam = 70*um;
-  G4ThreeVector gemPos = G4ThreeVector();
   
   fTargetSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 5*um);
   fTargetPos = G4ThreeVector(0, 0, -(fChamberSize[2] + fTargetSize[2])/2);
+
+  G4double holeDiam1 = 70*um;
+  G4double holeDiam2 = 30*um;
+
+  G4ThreeVector gemSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 50*um);
+  G4ThreeVector foilSize = G4ThreeVector(fChamberSize[0], fChamberSize[1], 5*um);
+  G4ThreeVector gemUnitZ = G4ThreeVector(0, 0, gemSize[2]/4);
+  G4ThreeVector foilPos = G4ThreeVector(0, 0, (gemSize[2] + foilSize[2])/2);
 
   G4ThreeVector sensorSize = G4ThreeVector(5*um, 5*um, fTargetSize[2]);
   G4double sensorUnit = 1*um;
@@ -83,26 +90,42 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
                                 0.5*fChamberSize[0], 0.5*fChamberSize[1], 0.5*fChamberSize[2]);
   fLogicChamber = new G4LogicalVolume(chamberSolid, fChamberMaterial, "ChamberLV");
   new G4PVPlacement(0, fChamberPos, fLogicChamber, "ChamberPV", worldLV, false, 0, true);
-  
-  G4Box* gemBox = new G4Box("GemBOX", 0.5*gemSize[0], 0.5*gemSize[1], 0.5*gemSize[2]);
-  G4Tubs* gemHole = new G4Tubs("GemHole", 0, 0.5*holeDiam, 0.5*gemSize[2], 0, 360*deg);
-  G4VSolid* gemSolid = new G4SubtractionSolid("GemSolid", gemBox, gemHole);
-  G4LogicalVolume* gemLV = new G4LogicalVolume(gemSolid, fGEMMaterial, "GemLV");
-  // new G4PVPlacement(0, gemPos, gemLV, "GemPV", fLogicChamber, false, 0, true);
 
   G4Box* targetSolid = new G4Box("TargetBox",
                                 0.5*fTargetSize[0], 0.5*fTargetSize[1], 0.5*fTargetSize[2]);
   fLogicTarget = new G4LogicalVolume(targetSolid, fTargetMaterial, "TargetLV");
   new G4PVPlacement(0, fTargetPos, fLogicTarget, "TargetPV", worldLV, false, 0, true);
-  
-  G4VisAttributes* chamberAtt = new G4VisAttributes();
-  G4VisAttributes* gemAtt = new G4VisAttributes(G4Colour(0.8, 0.8, 0.8, 0.5));
-  chamberAtt->SetForceWireframe(true);
-  // gemAtt->SetForceWireframe(true);
+
+  G4double dDiam = holeDiam1-holeDiam2;
+  G4Box* gemBox = new G4Box("GemBOX", 0.5*gemSize[0], 0.5*gemSize[1], 0.5*gemSize[2]);  
+  G4Cons* gemCon1 = new G4Cons("GemCON1", 0, 0.5*(holeDiam1 + dDiam), 0, 0.5*holeDiam2,
+                              2*gemUnitZ[2], 0, 360*deg);
+  G4Cons* gemCon2 = new G4Cons("GemCON2", 0, 0.5*holeDiam2, 0, 0.5*(holeDiam1 + dDiam),
+                              2*gemUnitZ[2], 0, 360*deg);
+  G4UnionSolid* gemHole = new G4UnionSolid("GemHole", gemCon1, gemCon2, 0, 4*gemUnitZ);
+
+  G4SubtractionSolid* gemSolid = new G4SubtractionSolid("GemSolid", gemBox, gemHole, 0, -2*gemUnitZ);
+  fLogicGEM = new G4LogicalVolume(gemSolid, fGEMMaterial, "GemLV");
+  new G4PVPlacement(0, G4ThreeVector(), fLogicGEM, "GemPV", fLogicChamber, false, 0, true);
+
+  G4Box* foilBox = new G4Box("FoilBOX", 0.5*foilSize[0], 0.5*foilSize[1], 0.5*foilSize[2]);  
+  G4Tubs* foilTub = new G4Tubs("Foil", 0, 0.5*holeDiam1, foilSize[2], 0, 360*deg);
+  G4SubtractionSolid* foilSolid = new G4SubtractionSolid("FoilSolid", foilBox, foilTub);
+  fLogicFoil = new G4LogicalVolume(foilSolid, fFoilMaterial, "FoildLV");
+  new G4PVPlacement(0, foilPos, fLogicFoil, "FoilPV", fLogicChamber, false, 0, true);
+  new G4PVPlacement(0, -foilPos, fLogicFoil, "FoilPV", fLogicChamber, false, 1, true);
+
+  G4VisAttributes* wireframeAtt = new G4VisAttributes();
+  G4VisAttributes* KaptonAtt = new G4VisAttributes(G4Colour(0.8, 0.8, 0.8, 0.4));
+  G4VisAttributes* FoilAtt = new G4VisAttributes(G4Colour(0.9, 0.72, 0.08, 0.4));
+  wireframeAtt->SetForceWireframe(true);
+  KaptonAtt->SetForceSolid(true);
+  FoilAtt->SetForceSolid(true);
 
   worldLV->SetVisAttributes(false);
   fLogicTarget->SetVisAttributes(false);
-  // gemLV->SetVisAttributes(gemAtt);
+  fLogicGEM->SetVisAttributes(KaptonAtt);
+  fLogicFoil->SetVisAttributes(FoilAtt);
 
   // Set Target as scoring volume
   fScoringVolume = fLogicTarget;

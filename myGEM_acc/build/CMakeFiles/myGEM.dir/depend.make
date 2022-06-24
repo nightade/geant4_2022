@@ -789,6 +789,7 @@ CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o: /home/uosp/Software/geant4-i
 CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o: ../src/DetectorConstruction.cc
 
 CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o: ../include/F02ElectricFieldSetup.hh
+CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o: ../include/NumberManager.hh
 CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o: /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o: /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/Normal3D.h
 CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o: /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/Point3D.h

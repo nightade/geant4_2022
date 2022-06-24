@@ -22,16 +22,19 @@ G4int NumberManager::GetRunCount() { return fRunCount; }
 G4double NumberManager::GetEdep() { return fEdep; }
 G4double NumberManager::GetKinStat() { return fKin/fSDHitCount; }
 
+G4int NumberManager::GetSecondECount() { return fSecondECount; }
+G4double NumberManager::GetSecondKinStat() { return fSecondKin/fSecondECount; }
+
 // ========== SET & ADDUP ========== //
 void NumberManager::SetBeamPort(G4ThreeVector vec) { fBeamPort = vec; }
 void NumberManager::SetSensorUnit(G4double unit) { fSensorUnit = unit; }
 void NumberManager::AddupSDHitCount() { fSDHitCount = fSDHitCount + 1; }
 void NumberManager::AddupRunCount() { fRunCount = fRunCount + 1; }
 void NumberManager::SetValuesZero()
-{ fSDHitCount = 0; fEdep = 0; fKin = 0; }
+{ fSDHitCount = 0; fEdep = 0; fKin = 0; fSecondECount = 0; fSecondKin = 0;}
 
 void NumberManager::AddupEdep(G4double edep) { fEdep = fEdep + edep; }
-void NumberManager::AddupKin(G4double kin)
-{
-  fKin = fKin + kin;
-}
+void NumberManager::AddupKin(G4double kin) { fKin = fKin + kin; }
+
+void NumberManager::AddupSecondECount() { fSecondECount = fSecondECount + 1; }
+void NumberManager::AddupSecondKin(G4double skin) { fSecondKin = fSecondKin + skin; }

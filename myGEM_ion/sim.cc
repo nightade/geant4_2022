@@ -4,7 +4,6 @@
 #include "RunAction.hh"
 #include "SteppingAction.hh"
 #include "NumberManager.hh"
-#include "QGSP_BERT.hh"
 
 #include <iostream>
 #include "G4RunManager.hh"
@@ -24,7 +23,6 @@ int main(int argc, char** argv)
 	g4man->SetUserInitialization(new DetectorConstruction);
     // g4man->SetUserInitialization(new ActionInitialization());
 
-	// G4VModularPhysicsList* physicslist = new QGSP_BERT;
 	G4VModularPhysicsList* physicslist = new PhysicsList;
 	g4man->SetUserInitialization(physicslist);
 
@@ -38,7 +36,7 @@ int main(int argc, char** argv)
 	visManager->Initialize();
 	
 	G4UImanager *UImanager = G4UImanager::GetUIpointer();
-	UImanager->ApplyCommand("/run/numberOfThreads 4");
+	// UImanager->ApplyCommand("/run/numberOfThreads 4");
 	if (!ui)
 	{
       // batch mode
@@ -50,6 +48,11 @@ int main(int argc, char** argv)
 	{
       // interactive mode
       UImanager->ApplyCommand("/control/execute init_vis.mac");
+
+	  G4String command_cuts = "/cuts/setLowEdge 100 eV";
+	  UImanager->ApplyCommand(command_cuts);
+	  G4String command_echo = "/control/echo asdf";
+	  UImanager->ApplyCommand(command_echo);
       ui->SessionStart();
       delete ui;
     }

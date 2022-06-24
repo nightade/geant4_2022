@@ -2,7 +2,7 @@
 // ********************************************************************
 // * License and Disclaimer                                           *
 // *                                                                  *
-// * The  Geant4 software  is  copyright of the Copyright Holders  of *
+// * The  Geant4 software  is  cyright of the Copyright Holders  of *
 // * the Geant4 Collaboration.  It is provided  under  the terms  and *
 // * conditions of the Geant4 Software License,  included in the file *
 // * LICENSE and available at  http://cern.ch/geant4/license .  These *
@@ -227,9 +227,7 @@ void G4EmPenelopePhysics::ConstructProcess()
   //Ionisation
   G4eIonisation* eioni = new G4eIonisation();
   G4PenelopeIonisationModel* theIoniPenelope = new G4PenelopeIonisationModel();
-  theIoniPenelope->SetLowEnergyLimit(0.8*CLHEP::eV);
-  theIoniPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
-  eioni->SetMinKinEnergy(0.8*CLHEP::eV);
+  theIoniPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);     
   eioni->AddEmModel(0, theIoniPenelope, new G4UniversalFluctuation());
       
   //Bremsstrahlung
@@ -271,7 +269,6 @@ void G4EmPenelopePhysics::ConstructProcess()
   theIoniPenelope = new G4PenelopeIonisationModel();
   theIoniPenelope->SetHighEnergyLimit(PenelopeHighEnergyLimit);
   eioni->AddEmModel(0,theIoniPenelope, new G4UniversalFluctuation());
-  eioni->SetMinKinEnergy(0.8*CLHEP::eV);
 
   //Bremsstrahlung
   brem = new G4eBremsstrahlung();

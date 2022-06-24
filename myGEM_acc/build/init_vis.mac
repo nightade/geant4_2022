@@ -1,5 +1,5 @@
 # Set some default verbose
-/control/verbose 0
+/control/verbose 1
 /control/saveHistory
 /run/verbose 0
 /event/verbose 0

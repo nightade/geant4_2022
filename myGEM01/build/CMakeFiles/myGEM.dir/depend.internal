@@ -410,7 +410,7 @@ CMakeFiles/myGEM.dir/sim.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tools/typedefs
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkgdefs.hh
- /home/uosp/geant4_workdir/myGEM01/sim.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/sim.cc
 CMakeFiles/myGEM.dir/src/ActionInitialization.cc.o
  ../include/ActionInitialization.hh
  ../include/PrimaryGeneratorAction.hh
@@ -516,7 +516,7 @@ CMakeFiles/myGEM.dir/src/ActionInitialization.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tools/mem
  /home/uosp/Software/geant4-install/include/Geant4/tools/ntuple_booking
  /home/uosp/Software/geant4-install/include/Geant4/tools/typedefs
- /home/uosp/geant4_workdir/myGEM01/src/ActionInitialization.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/ActionInitialization.cc
 CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
  ../include/DetectorConstruction.hh
  ../include/DetectorMessenger.hh
@@ -628,6 +628,8 @@ CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/G4CollectionNameVector.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4Color.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4Colour.hh
+ /home/uosp/Software/geant4-install/include/Geant4/G4Cons.hh
+ /home/uosp/Software/geant4-install/include/Geant4/G4Cons.icc
  /home/uosp/Software/geant4-install/include/Geant4/G4DCofThisEvent.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4DataVector.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4DataVector.icc
@@ -797,6 +799,7 @@ CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/G4Types.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UAdapter.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UBox.hh
+ /home/uosp/Software/geant4-install/include/Geant4/G4UCons.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UIcommand.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UIdirectory.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UImessenger.hh
@@ -804,6 +807,7 @@ CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/G4UItokenNum.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UTubs.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UniformElectricField.hh
+ /home/uosp/Software/geant4-install/include/Geant4/G4UnionSolid.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UserStackingAction.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UserSteppingAction.hh
  /home/uosp/Software/geant4-install/include/Geant4/G4UserTrackingAction.hh
@@ -893,7 +897,7 @@ CMakeFiles/myGEM.dir/src/DetectorConstruction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tools/typedefs
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkgdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/DetectorConstruction.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/DetectorConstruction.cc
 CMakeFiles/myGEM.dir/src/DetectorMessesnger.cc.o
  ../include/DetectorConstruction.hh
  ../include/DetectorMessenger.hh
@@ -923,7 +927,7 @@ CMakeFiles/myGEM.dir/src/DetectorMessesnger.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/globals.hh
  /home/uosp/Software/geant4-install/include/Geant4/templates.hh
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
- /home/uosp/geant4_workdir/myGEM01/src/DetectorMessesnger.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/DetectorMessesnger.cc
 CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o
  ../include/F02ElectricFieldSetup.hh
  /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
@@ -1070,7 +1074,7 @@ CMakeFiles/myGEM.dir/src/F02ElectricFieldSetup.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/globals.hh
  /home/uosp/Software/geant4-install/include/Geant4/templates.hh
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
- /home/uosp/geant4_workdir/myGEM01/src/F02ElectricFieldSetup.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/F02ElectricFieldSetup.cc
 CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Geometry/Normal3D.h
@@ -1383,7 +1387,7 @@ CMakeFiles/myGEM.dir/src/MyEmPenelopePhysics.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/templates.hh
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/MyEmPenelopePhysics.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/MyEmPenelopePhysics.cc
 CMakeFiles/myGEM.dir/src/NumberManager.cc.o
  ../include/NumberManager.hh
  /home/uosp/Software/geant4-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
@@ -1404,7 +1408,7 @@ CMakeFiles/myGEM.dir/src/NumberManager.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/globals.hh
  /home/uosp/Software/geant4-install/include/Geant4/templates.hh
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
- /home/uosp/geant4_workdir/myGEM01/src/NumberManager.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/NumberManager.cc
 CMakeFiles/myGEM.dir/src/PhysicsList.cc.o
  ../include/MyEmPenelopePhysics.hh
  ../include/PhysicsList.hh
@@ -1590,7 +1594,7 @@ CMakeFiles/myGEM.dir/src/PhysicsList.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/templates.hh
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/PhysicsList.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/PhysicsList.cc
 CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o
  ../include/NumberManager.hh
  ../include/PrimaryGeneratorAction.hh
@@ -1875,7 +1879,7 @@ CMakeFiles/myGEM.dir/src/PrimaryGeneratorAction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tls.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
  /home/uosp/Software/geant4-install/include/Geant4/trkgdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/PrimaryGeneratorAction.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/PrimaryGeneratorAction.cc
 CMakeFiles/myGEM.dir/src/RunAction.cc.o
  ../include/NumberManager.hh
  ../include/RunAction.hh
@@ -2074,7 +2078,7 @@ CMakeFiles/myGEM.dir/src/RunAction.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tools/ntuple_booking
  /home/uosp/Software/geant4-install/include/Geant4/tools/typedefs
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/RunAction.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/RunAction.cc
 CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o
  ../include/NumberManager.hh
  ../include/SensitiveDetector.hh
@@ -2271,4 +2275,4 @@ CMakeFiles/myGEM.dir/src/SensitiveDetector.cc.o
  /home/uosp/Software/geant4-install/include/Geant4/tools/ntuple_booking
  /home/uosp/Software/geant4-install/include/Geant4/tools/typedefs
  /home/uosp/Software/geant4-install/include/Geant4/trkdefs.hh
- /home/uosp/geant4_workdir/myGEM01/src/SensitiveDetector.cc
+ /home/uosp/geant4_workdir/geant4_2022/myGEM01/src/SensitiveDetector.cc

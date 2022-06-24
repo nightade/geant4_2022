@@ -6,10 +6,10 @@ public:
   PhysicsList();
   virtual ~PhysicsList();
 
-//   void ConstructParticle();
-//   void ConstructProcess();
+  // void ConstructParticle();
+  // void ConstructProcess();
   void SetCuts();
 
-// private:
-//   G4VPhysicsConstructor* fEmPenelope = nullptr;
+private:
+  G4VPhysicsConstructor* fEm = nullptr;
 };

@@ -26,10 +26,12 @@
 #include "G4PhysicalConstants.hh"
 #include "G4SystemOfUnits.hh"
 
+#include "NumberManager.hh"
+
 //  Constructors:
 
 F02ElectricFieldSetup::F02ElectricFieldSetup()
- : fMinStep(0.010*mm),  // minimal step of 10 microns
+ : fMinStep(0.010*um),  // minimal step of 10 microns
    fFieldManager(0),
    fChordFinder(0),
    fEquation(0),
@@ -39,8 +41,10 @@ F02ElectricFieldSetup::F02ElectricFieldSetup()
    fIntgrDriver(0),
    fStepperType(4)    // ClassicalRK4 -- the default stepper
 {
-  fEMfield = new G4UniformElectricField(
-                   G4ThreeVector(0., 0., 8333333*volt/cm)); // (100V)/(120um)
+  G4ThreeVector vecE(0., 0., 8333333*volt/cm); // (100V)/(120um)
+  NumberManager::Instance()->SetEField(vecE);
+
+  fEMfield = new G4UniformElectricField(vecE); // 
   fEquation = new G4EqMagElectricField(fEMfield);
 
   fFieldManager = GetGlobalFieldManager();
@@ -49,7 +53,7 @@ F02ElectricFieldSetup::F02ElectricFieldSetup()
 }
 
 F02ElectricFieldSetup::F02ElectricFieldSetup(G4ThreeVector fieldVector)
-  : fMinStep(0.010*mm),  // minimal step of 10 microns
+  : fMinStep(0.010*um),  // minimal step of 10 microns
     fFieldManager(0),
     fChordFinder(0),
     fEquation(0),
@@ -86,7 +90,7 @@ void F02ElectricFieldSetup::UpdateIntegrator()
   assert(fEquation!=nullptr);
 
   G4cout<< " F02ElectricFieldSetup: The minimal step is equal to "
-        << fMinStep/mm << " mm" << G4endl;
+        << fMinStep/um << " um" << G4endl;
 
   if (fChordFinder) {
      delete fChordFinder;

@@ -24,9 +24,6 @@
 // ********************************************************************
 //
 
-#ifndef G4EmPenelopePhysics_h
-#define G4EmPenelopePhysics_h 1
-
 #include "G4VPhysicsConstructor.hh"
 #include "globals.hh"
 
@@ -45,11 +42,3 @@ public:
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-#endif
-
-
-
-
-
-

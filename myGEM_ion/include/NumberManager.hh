@@ -17,6 +17,9 @@ public:
   G4double GetEdep();
   G4double GetKinStat();
 
+  G4int GetSecondECount();
+  G4double GetSecondKinStat();
+
   // ========== SET & ADDUP ========== //
   void SetBeamPort(G4ThreeVector);
   void SetSensorUnit(G4double);
@@ -26,6 +29,9 @@ public:
 
   void AddupEdep(G4double);
   void AddupKin(G4double);
+
+  void AddupSecondECount();
+  void AddupSecondKin(G4double);
 
 private:
   NumberManager();
@@ -39,4 +45,7 @@ private:
 
   G4double fEdep = 0;
   G4double fKin = 0;
+
+  G4int fSecondECount = 0;
+  G4double fSecondKin = 0;
 };

@@ -29,7 +29,7 @@
 //  Constructors:
 
 F02ElectricFieldSetup::F02ElectricFieldSetup()
- : fMinStep(0.010*mm),  // minimal step of 10 microns
+ : fMinStep(0.1*um),
    fFieldManager(0),
    fChordFinder(0),
    fEquation(0),
@@ -49,7 +49,7 @@ F02ElectricFieldSetup::F02ElectricFieldSetup()
 }
 
 F02ElectricFieldSetup::F02ElectricFieldSetup(G4ThreeVector fieldVector)
-  : fMinStep(0.010*mm),  // minimal step of 10 microns
+  : fMinStep(0.1*um),
     fFieldManager(0),
     fChordFinder(0),
     fEquation(0),
@@ -86,7 +86,7 @@ void F02ElectricFieldSetup::UpdateIntegrator()
   assert(fEquation!=nullptr);
 
   G4cout<< " F02ElectricFieldSetup: The minimal step is equal to "
-        << fMinStep/mm << " mm" << G4endl;
+        << fMinStep/um << " um" << G4endl;
 
   if (fChordFinder) {
      delete fChordFinder;
@@ -130,64 +130,13 @@ void F02ElectricFieldSetup::CreateStepper()
   //   and creates a new stepper object of the chosen stepper type
 
   const G4int nvar = 8;
-
   auto oldStepper= fStepper;
 
-  switch ( fStepperType )
-  {
-    case 0:
-      fStepper = new G4ExplicitEuler( fEquation, nvar );
-      G4cout<<"G4ExplicitEuler is calledS"<<G4endl;
-      break;
-    case 1:
-      fStepper = new G4ImplicitEuler( fEquation, nvar );
-      G4cout<<"G4ImplicitEuler is called"<<G4endl;
-      break;
-    case 2:
-      fStepper = new G4SimpleRunge( fEquation, nvar );
-      G4cout<<"G4SimpleRunge is called"<<G4endl;
-      break;
-    case 3:
-      fStepper = new G4SimpleHeum( fEquation, nvar );
-      G4cout<<"G4SimpleHeum is called"<<G4endl;
-      break;
-    case 4:
-      fStepper = new G4ClassicalRK4( fEquation, nvar );
-      G4cout<<"G4ClassicalRK4 is called"<<G4endl;
-      break;
-    case 5:
-      fStepper = new G4CashKarpRKF45( fEquation, nvar );
-      G4cout<<"G4CashKarpRKF45 is called"<<G4endl;
-      break;
-    case 6:
-      fStepper = 0; // new G4RKG3_Stepper( fEquation, nvar );
-      G4cout<<"G4RKG3_Stepper is not currently working for Electric Field"
-            <<G4endl;
-      break;
-    case 7:
-      fStepper = 0; // new G4HelixExplicitEuler( fEquation );
-      G4cout<<"G4HelixExplicitEuler is not valid for Electric Field"<<G4endl;
-      break;
-    case 8:
-      fStepper = 0; // new G4HelixImplicitEuler( fEquation );
-      G4cout<<"G4HelixImplicitEuler is not valid for Electric Field"<<G4endl;
-      break;
-    case 9:
-      fStepper = 0; // new G4HelixSimpleRunge( fEquation );
-      G4cout<<"G4HelixSimpleRunge is not valid for Electric Field"<<G4endl;
-      break;
-    default:  /* fStepper = 0; // Older code */
-      fStepper = new G4ClassicalRK4( fEquation, nvar );
-      G4cout<<"G4ClassicalRK4 (default) is called"<<G4endl;
-      break;
-  }
+  fStepper = new G4ClassicalRK4( fEquation, nvar );
+  G4cout<<"G4ClassicalRK4 is called"<<G4endl;
 
   delete oldStepper;
-  // Now must make sure it is 'stripped' from the dependent object(s)
-  //  ... but the next line does this anyway - by informing
-  //      the driver (if it exists) about the new stepper.
 
-  // Always inform the (existing) driver about the new stepper
   if( fIntgrDriver )
       fIntgrDriver->RenewStepperAndAdjust( fStepper );
 }
